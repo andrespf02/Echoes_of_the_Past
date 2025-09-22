@@ -1,0 +1,20 @@
+# Unity meta files
+*.meta text eol=lf
+
+# Unity asset files
+*.unity text eol=lf
+*.prefab text eol=lf
+*.asset text eol=lf
+
+# Todos los demás archivos de texto
+*.cs text eol=lf
+*.shader text eol=lf
+
+# Binarios (no cambiar CRLF)
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.fbx binary
+*.mp3 binary
+*.wav binary
+*.ogg binary
