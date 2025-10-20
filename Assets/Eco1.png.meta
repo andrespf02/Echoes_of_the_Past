@@ -1,13 +1,10 @@
 fileFormatVersion: 2
-guid: 3a7679e4e2a630246bdfae28514a28dc
+guid: 526dd389f7ac06a44bb417523dd59373
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4369566913352091193
-    second: eco_white_0
-  - first:
-      213: 7468487099507528686
-    second: eco_white_1
+      213: 6579042119401320975
+    second: Eco1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -103,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: eco_white_0
+      name: Eco1_0
       rect:
         serializedVersion: 2
-        x: 114
-        y: 29
-        width: 379
-        height: 357
+        x: 165
+        y: 73
+        width: 200
+        height: 340
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -118,30 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 936c6ace4f1d3ac30800000000000000
-      internalID: 4369566913352091193
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: eco_white_1
-      rect:
-        serializedVersion: 2
-        x: 571
-        y: 14
-        width: 27
-        height: 27
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: ee3dbbf727565a760800000000000000
-      internalID: 7468487099507528686
+      spriteID: f02bf3943f37d4b50800000000000000
+      internalID: 6579042119401320975
       vertices: []
       indices: 
       edges: []
@@ -160,8 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      eco_white_0: 4369566913352091193
-      eco_white_1: 7468487099507528686
+      Eco1_0: 6579042119401320975
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
