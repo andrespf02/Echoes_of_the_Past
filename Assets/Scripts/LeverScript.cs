@@ -1,9 +1,17 @@
 using UnityEngine;
+using TMPro;
 
 public class LeverScript : MonoBehaviour
 {
+    [Header("Linked Door")]
     public DoorScript linkedDoor;
+
+    [Header("Lever Dialogue Settings")]
+    [TextArea] public string dialogueText = "Actívame!";
+    public GameObject dialoguePrefab;
+
     private bool playerNearby = false;
+    private GameObject dialogueInstance;
 
     private SpriteRenderer sr;
     private Collider2D col;
@@ -23,30 +31,56 @@ public class LeverScript : MonoBehaviour
 
     void Update()
     {
-        if (playerNearby && Input.GetKeyDown(KeyCode.Space) && TimeManager.Instance.isPast)
+        if (playerNearby && Input.GetKeyDown(KeyCode.Space) && TimeManager.Instance != null && TimeManager.Instance.isPast)
         {
-            linkedDoor.ToggleDoor(); // alterna abrir/cerrar
-            Debug.Log("Palanca accionada. Estado de la puerta: " + (linkedDoor != null && linkedDoor != null));
+            if (linkedDoor != null)
+            {
+                linkedDoor.ToggleDoor();
+                Debug.Log("Palanca accionada. Puerta cambiada de estado.");
+            }
         }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
+        {
             playerNearby = true;
+            ShowDialogue();
+        }
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
+        {
             playerNearby = false;
+            HideDialogue();
+        }
     }
 
     public void UpdateVisibility()
     {
         if (sr == null || col == null) return;
+
         bool visible = TimeManager.Instance != null && TimeManager.Instance.isPast;
         sr.enabled = visible;
         col.enabled = visible;
+    }
+
+    void ShowDialogue()
+    {
+        if (dialoguePrefab != null && dialogueInstance == null)
+        {
+            dialogueInstance = Instantiate(dialoguePrefab, transform.position + Vector3.up * 1.5f, Quaternion.identity);
+            dialogueInstance.GetComponentInChildren<TextMeshPro>().text = dialogueText;
+            dialogueInstance.transform.SetParent(transform);
+        }
+    }
+
+    void HideDialogue()
+    {
+        if (dialogueInstance != null)
+            Destroy(dialogueInstance);
     }
 }
