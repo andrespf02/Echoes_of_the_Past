@@ -10,6 +10,13 @@ public class PuzzleScript : MonoBehaviour
     [Header("Linked Door")]
     public DoorScript linkedDoor;
 
+    [Header("Chest Settings")]
+    public SpriteRenderer chestRenderer;
+    public Sprite openChestSprite;
+
+    [Header("Hidden Object")]
+    public GameObject hiddenObject;
+
     [Header("Dialogue Prefab")]
     public GameObject dialoguePrefab;
     private GameObject dialogueInstance;
@@ -22,9 +29,12 @@ public class PuzzleScript : MonoBehaviour
 
     void Start()
     {
-        playerLives = PlayerLives.FindFirstObjectByType<PlayerLives>();
+        playerLives = FindFirstObjectByType<PlayerLives>();
         if (playerLives == null)
             Debug.LogWarning("No se encontró PlayerLives en la escena.");
+
+        if (hiddenObject != null)
+            hiddenObject.SetActive(false);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -83,17 +93,37 @@ public class PuzzleScript : MonoBehaviour
         if (answer == correctAnswer)
         {
             puzzleSolved = true;
-            dialogueInstance.GetComponentInChildren<TextMeshPro>().text = "¡Correcto! La puerta se ha abierto.";
+            if (dialogueInstance != null)
+                dialogueInstance.GetComponentInChildren<TextMeshPro>().text = "¡Correcto! La puerta se ha abierto.";
+
             if (linkedDoor != null)
                 linkedDoor.ToggleDoor();
+
+            if (chestRenderer != null && openChestSprite != null)
+                chestRenderer.sprite = openChestSprite;
+
+            if (hiddenObject != null)
+                hiddenObject.SetActive(true);
+
+            Invoke(nameof(DestroyPuzzleObject), 2f);
         }
         else
         {
-            dialogueInstance.GetComponentInChildren<TextMeshPro>().text = "Incorrecto. Has perdido una vida.";
+            if (dialogueInstance != null)
+                dialogueInstance.GetComponentInChildren<TextMeshPro>().text = "Incorrecto. Has perdido una vida.";
+
             if (playerLives != null)
                 playerLives.TakeLife(1);
         }
 
         Invoke(nameof(HidePuzzle), 2f);
+    }
+
+    void DestroyPuzzleObject()
+    {
+        if (dialogueInstance != null)
+            Destroy(dialogueInstance);
+
+        Destroy(gameObject);
     }
 }

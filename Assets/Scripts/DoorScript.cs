@@ -16,7 +16,6 @@ public class DoorScript : MonoBehaviour
         UpdateDoorVisual();
     }
 
-    // Alterna el estado de la puerta
     public void ToggleDoor()
     {
         isOpen = !isOpen;
@@ -26,6 +25,6 @@ public class DoorScript : MonoBehaviour
     private void UpdateDoorVisual()
     {
         sr.sprite = isOpen ? doorOpen : doorClosed;
-        col.enabled = !isOpen; // bloquea solo si está cerrada
+        col.enabled = !isOpen;
     }
 }

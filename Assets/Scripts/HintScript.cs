@@ -1,10 +1,10 @@
 using UnityEngine;
 using TMPro;
 
-public class Hint : MonoBehaviour
+public class HintScript : MonoBehaviour
 {
     [Header("Hint Settings")]
-    [TextArea] public string hintText = "Todo tiempo pasado fue mejor";
+    [TextArea] public string hintText = "Hint: Todo tiempo pasado fue mejor";
     public GameObject dialoguePrefab;
 
     private GameObject dialogueInstance;

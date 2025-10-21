@@ -15,7 +15,7 @@ public class TimeManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject); // persiste entre escenas
+            DontDestroyOnLoad(gameObject);
         }
         else
         {
@@ -25,7 +25,7 @@ public class TimeManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.P)) // cambiar tiempo
+        if (Input.GetKeyDown(KeyCode.P))
         {
             isPast = !isPast;
             Debug.Log("Cambio de tiempo: " + (isPast ? "Pasado" : "Presente"));

@@ -11,7 +11,7 @@ public class TimeShiftBackground : MonoBehaviour
     void Start()
     {
         sr = GetComponent<SpriteRenderer>();
-        sr.sprite = presentBackground; // empieza en el presente
+        sr.sprite = presentBackground;
     }
 
     void Update()

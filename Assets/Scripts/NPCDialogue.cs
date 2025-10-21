@@ -4,7 +4,7 @@ using TMPro;
 public class NPCDialogue : MonoBehaviour
 {
     [Header("NPC Dialogue Settings")]
-    [TextArea] public string dialogueText = "Me alegra verte! Tú eres el elegido y eres la última esperanza de nuestro pueblo, por eso te otorgo el poder del cambio temporal. Usa este poder sabiamente para superar los desafíos que te esperan. Presiona 'P' para viajar cuando lo necesites. Buena suerte!";
+    [TextArea] public string dialogueText = "'Espacio' para activar. 'P' para viajar.";
 
     [Header("Visual Text")]
     public GameObject dialoguePrefab;
