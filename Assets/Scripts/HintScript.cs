@@ -21,12 +21,15 @@ public class HintScript : MonoBehaviour
             HideHint();
     }
 
+    // Mostrar pista sobre cambio de tiempo
     void ShowHint()
     {
         if (dialoguePrefab != null && dialogueInstance == null)
         {
             dialogueInstance = Instantiate(dialoguePrefab, transform.position + Vector3.up * 1.5f, Quaternion.identity);
-            dialogueInstance.GetComponentInChildren<TextMeshPro>().text = hintText;
+            var text = dialogueInstance.GetComponentInChildren<TextMeshPro>();
+            if (text != null)
+                text.text = hintText;
             dialogueInstance.transform.SetParent(transform);
         }
     }

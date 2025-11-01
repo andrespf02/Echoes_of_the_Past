@@ -5,14 +5,20 @@ public class DoorScript : MonoBehaviour
     public Sprite doorClosed;
     public Sprite doorOpen;
 
-    private SpriteRenderer sr;
-    private BoxCollider2D col;
+    private SpriteRenderer spriteRenderer;
+    private BoxCollider2D boxCollider;
     private bool isOpen = false;
 
     void Start()
     {
-        sr = GetComponent<SpriteRenderer>();
-        col = GetComponent<BoxCollider2D>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        boxCollider = GetComponent<BoxCollider2D>();
+
+        if (spriteRenderer == null)
+            Debug.LogWarning("DoorScript: no SpriteRenderer found on the door GameObject.");
+        if (boxCollider == null)
+            Debug.LogWarning("DoorScript: no BoxCollider2D found on the door GameObject.");
+
         UpdateDoorVisual();
     }
 
@@ -22,9 +28,13 @@ public class DoorScript : MonoBehaviour
         UpdateDoorVisual();
     }
 
+    // Actualiza la apariencia visual de la puerta según su estado
     private void UpdateDoorVisual()
     {
-        sr.sprite = isOpen ? doorOpen : doorClosed;
-        col.enabled = !isOpen;
+        if (spriteRenderer != null)
+            spriteRenderer.sprite = isOpen ? doorOpen : doorClosed;
+
+        if (boxCollider != null)
+            boxCollider.enabled = !isOpen;
     }
 }

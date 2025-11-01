@@ -29,14 +29,17 @@ public class PuzzleScript : MonoBehaviour
 
     void Start()
     {
+        // Encontrar referencia a PlayerLives
         playerLives = FindFirstObjectByType<PlayerLives>();
         if (playerLives == null)
-            Debug.LogWarning("No se encontró PlayerLives en la escena.");
+            Debug.LogWarning("PuzzleScript: No se encontró PlayerLives en la escena.");
 
+        // Asegurarse de que el objeto oculto esté desactivado hasta que se resuelva el rompecabezas
         if (hiddenObject != null)
             hiddenObject.SetActive(false);
     }
 
+    // Detectar cercanía del jugador
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player") && !puzzleSolved)
@@ -55,6 +58,7 @@ public class PuzzleScript : MonoBehaviour
         }
     }
 
+    // Recibir input del jugador al responder
     void Update()
     {
         if (playerNearby && puzzleActive && !puzzleSolved)
@@ -69,12 +73,15 @@ public class PuzzleScript : MonoBehaviour
         }
     }
 
+    // Mostrar Puzzle
     void ShowPuzzle()
     {
         if (dialoguePrefab != null && dialogueInstance == null)
         {
             dialogueInstance = Instantiate(dialoguePrefab, transform.position + Vector3.up * 1.5f, Quaternion.identity);
-            dialogueInstance.GetComponentInChildren<TextMeshPro>().text = puzzleQuestion + "\nPresiona el número correcto.";
+            var text = dialogueInstance.GetComponentInChildren<TextMeshPro>();
+            if (text != null)
+                text.text = puzzleQuestion + "\nPresiona el número correcto.";
             dialogueInstance.transform.SetParent(transform);
             puzzleActive = true;
         }
@@ -88,13 +95,17 @@ public class PuzzleScript : MonoBehaviour
         puzzleActive = false;
     }
 
+    // Corroborar respuesta del jugador
     void CheckAnswer(int answer)
     {
         if (answer == correctAnswer)
         {
             puzzleSolved = true;
             if (dialogueInstance != null)
-                dialogueInstance.GetComponentInChildren<TextMeshPro>().text = "¡Correcto! La puerta se ha abierto.";
+                {
+                    var t = dialogueInstance.GetComponentInChildren<TextMeshPro>();
+                    if (t != null) t.text = "¡Correcto! La puerta se ha abierto.";
+                }
 
             if (linkedDoor != null)
                 linkedDoor.ToggleDoor();
@@ -110,7 +121,10 @@ public class PuzzleScript : MonoBehaviour
         else
         {
             if (dialogueInstance != null)
-                dialogueInstance.GetComponentInChildren<TextMeshPro>().text = "Incorrecto. Has perdido una vida.";
+                {
+                    var t = dialogueInstance.GetComponentInChildren<TextMeshPro>();
+                    if (t != null) t.text = "Incorrecto. Has perdido una vida.";
+                }
 
             if (playerLives != null)
                 playerLives.TakeLife(1);

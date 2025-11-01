@@ -23,6 +23,7 @@ public class PlayerLives : MonoBehaviour
         respawnPosition = transform.position;
     }
 
+    // Perder una vida al colisionar
     public void TakeLife(int amount = 1)
     {
         currentLives -= amount;
@@ -35,6 +36,7 @@ public class PlayerLives : MonoBehaviour
             RespawnAtCheckpoint();
     }
 
+    // Ganar una vida al colisionar
     public void AddLife(int amount = 1)
     {
         currentLives += amount;
@@ -44,15 +46,19 @@ public class PlayerLives : MonoBehaviour
         UpdateHearts();
     }
 
+    // Actualizar corazones
     void UpdateHearts()
     {
+        if (hearts == null) return;
+
         for (int i = 0; i < hearts.Length; i++)
         {
+            if (hearts[i] == null) continue;
             hearts[i].enabled = (i < currentLives);
         }
     }
 
-    // Checkpoint
+    // Checkpoint: resetar al número de vidas iniciales
     public void SetCheckpoint(Vector3 newPosition, SpriteRenderer flagRenderer = null)
     {
         respawnPosition = newPosition;
@@ -71,7 +77,7 @@ public class PlayerLives : MonoBehaviour
         UpdateHearts();
     }
 
-    // Colisiones
+    // Colisiones: perder y ganar vida según el objeto
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Fire"))

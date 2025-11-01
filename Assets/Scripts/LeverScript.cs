@@ -13,20 +13,21 @@ public class LeverScript : MonoBehaviour
     private bool playerNearby = false;
     private GameObject dialogueInstance;
 
-    private SpriteRenderer sr;
-    private Collider2D col;
+    private SpriteRenderer spriteRenderer;
+    private Collider2D boxCollider;
 
     void Awake()
     {
-        sr = GetComponent<SpriteRenderer>();
-        col = GetComponent<Collider2D>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        boxCollider = GetComponent<Collider2D>();
 
+        // Actualiza la visibilidad inicial según el estado global del tiempo.
         UpdateVisibility();
 
         if (TimeManager.Instance != null)
             TimeManager.Instance.OnTimeChangedEvent += UpdateVisibility;
         else
-            Debug.LogError("No se encuentra TimeManager en la escena");
+            Debug.LogError("LeverScript: No se encuentra TimeManager en la escena");
     }
 
     void Update()
@@ -61,13 +62,14 @@ public class LeverScript : MonoBehaviour
 
     public void UpdateVisibility()
     {
-        if (sr == null || col == null) return;
+        if (spriteRenderer == null || boxCollider == null) return;
 
         bool visible = TimeManager.Instance != null && TimeManager.Instance.isPast;
-        sr.enabled = visible;
-        col.enabled = visible;
+        spriteRenderer.enabled = visible;
+        boxCollider.enabled = visible;
     }
 
+    // Pista de diálogo para el jugador
     void ShowDialogue()
     {
         if (dialoguePrefab != null && dialogueInstance == null)

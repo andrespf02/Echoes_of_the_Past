@@ -6,36 +6,38 @@ public class TimeVisibility : MonoBehaviour
     [Header("Visible only in...")]
     public TimeState visibleIn = TimeState.Present;
 
-    private SpriteRenderer sr;
-    private Collider2D col;
+    private SpriteRenderer spriteRenderer;
+    private Collider2D objectCollider;
 
     void Awake()
     {
-        sr = GetComponent<SpriteRenderer>();
-        col = GetComponent<Collider2D>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        objectCollider = GetComponent<Collider2D>();
 
         UpdateVisibility();
 
         if (TimeManager.Instance != null)
             TimeManager.Instance.OnTimeChangedEvent += UpdateVisibility;
         else
-            Debug.LogError("No se encontró TimeManager en la escena");
+            Debug.LogError("TimeVisibility: No se encontró TimeManager en la escena");
     }
 
+    // Destruye objetos de la escena al cambiar tiempo
     void OnDestroy()
     {
         if (TimeManager.Instance != null)
             TimeManager.Instance.OnTimeChangedEvent -= UpdateVisibility;
     }
 
+    // Actualiza la visibilidad del objeto según el estado del tiempo
     public void UpdateVisibility()
     {
-        if (sr == null || col == null) return;
+        if (spriteRenderer == null || objectCollider == null) return;
 
         bool isPast = TimeManager.Instance != null && TimeManager.Instance.isPast;
         bool visible = (visibleIn == TimeState.Past && isPast) || (visibleIn == TimeState.Present && !isPast);
 
-        sr.enabled = visible;
-        col.enabled = visible;
+        spriteRenderer.enabled = visible;
+        objectCollider.enabled = visible;
     }
 }

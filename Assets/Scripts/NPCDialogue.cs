@@ -28,6 +28,7 @@ public class NPCDialogue : MonoBehaviour
         }
     }
 
+    // Mostrar diálogo del eco
     void Update()
     {
         if (playerInRange && Input.GetKeyDown(KeyCode.H))
@@ -39,12 +40,15 @@ public class NPCDialogue : MonoBehaviour
         }
     }
 
+    // Mostrar diálogo del eco
     void ShowDialogue()
     {
         if (dialoguePrefab != null && dialogueInstance == null)
         {
             dialogueInstance = Instantiate(dialoguePrefab, transform.position + Vector3.up * 1.5f, Quaternion.identity);
-            dialogueInstance.GetComponentInChildren<TextMeshPro>().text = dialogueText;
+            var text = dialogueInstance.GetComponentInChildren<TextMeshPro>();
+            if (text != null)
+                text.text = dialogueText;
             dialogueInstance.transform.SetParent(transform);
             dialogueActive = true;
         }
