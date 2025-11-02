@@ -84,6 +84,10 @@ public class PuzzleScript : MonoBehaviour
                 text.text = puzzleQuestion + "\nPresiona el número correcto.";
             dialogueInstance.transform.SetParent(transform);
             puzzleActive = true;
+
+            // Bloquear cambio temporal mientras se resuelve el puzzle
+            if (TimeManager.Instance != null)
+                TimeManager.Instance.isTimeBlocked = true;
         }
     }
 
@@ -93,6 +97,10 @@ public class PuzzleScript : MonoBehaviour
             Destroy(dialogueInstance);
 
         puzzleActive = false;
+
+        // Desbloquear cambio temporal al salir del puzzle
+        if (TimeManager.Instance != null)
+            TimeManager.Instance.isTimeBlocked = false;
     }
 
     // Corroborar respuesta del jugador

@@ -7,6 +7,9 @@ public class TimeManager : MonoBehaviour
     [Header("Estado inicial del tiempo")]
     public bool isPast = false;
 
+    [Header("Bloqueo de control temporal")]
+    public bool isTimeBlocked = false;
+
     public delegate void TimeChangeHandler();
     public event TimeChangeHandler OnTimeChangedEvent;
 
@@ -23,14 +26,14 @@ public class TimeManager : MonoBehaviour
         }
     }
 
+    // Permite cambiar el tiempo al tocar tecla P si es no está bloqueado (se bloquea cuando esté resoleviendo puzzles)
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.P))
+        if (Input.GetKeyDown(KeyCode.P) && !isTimeBlocked)
         {
             isPast = !isPast;
             Debug.Log("Cambio de tiempo: " + (isPast ? "Pasado" : "Presente"));
-            if (OnTimeChangedEvent != null)
-                OnTimeChangedEvent.Invoke();
+            OnTimeChangedEvent?.Invoke();
         }
     }
 }
