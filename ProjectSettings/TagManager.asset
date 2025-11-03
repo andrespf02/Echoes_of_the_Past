@@ -9,6 +9,10 @@ TagManager:
   - Puzzle
   - Flag
   - Checkpoint
+  - Verano
+  - "Oto\xF1o"
+  - Invierno
+  - Primavera
   layers:
   - Default
   - TransparentFX

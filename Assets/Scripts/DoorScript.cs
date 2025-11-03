@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class DoorScript : MonoBehaviour
 {
+    [Header("Door Sprites")]
     public Sprite doorClosed;
     public Sprite doorOpen;
 
@@ -22,19 +23,32 @@ public class DoorScript : MonoBehaviour
         UpdateDoorVisual();
     }
 
+    // Llama a este método para abrir/cerrar la puerta
     public void ToggleDoor()
     {
         isOpen = !isOpen;
         UpdateDoorVisual();
     }
 
-    // Actualiza la apariencia visual de la puerta según su estado
+    // Actualiza el sprite y el collider según si la puerta está abierta o cerrada
     private void UpdateDoorVisual()
     {
         if (spriteRenderer != null)
             spriteRenderer.sprite = isOpen ? doorOpen : doorClosed;
 
         if (boxCollider != null)
-            boxCollider.enabled = !isOpen;
+            boxCollider.isTrigger = isOpen; // permite atravesar cuando está abierta
+    }
+
+    public void OpenDoor()
+    {
+        isOpen = true;
+        UpdateDoorVisual();
+    }
+
+    public void CloseDoor()
+    {
+        isOpen = false;
+        UpdateDoorVisual();
     }
 }
