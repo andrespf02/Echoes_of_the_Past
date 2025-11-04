@@ -28,6 +28,7 @@ public class MirrorPuzzle : MonoBehaviour
         playerLives = FindFirstObjectByType<PlayerLives>();
     }
 
+    // Detectar cercanía del jugador para mostrar el puzzle
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player") && !puzzleSolved)
@@ -37,6 +38,7 @@ public class MirrorPuzzle : MonoBehaviour
         }
     }
 
+    // Detectar cercanía del jugador para desactivar el puzzle
     private void OnTriggerExit2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
@@ -71,6 +73,7 @@ public class MirrorPuzzle : MonoBehaviour
         }
     }
 
+    // Mostrar puzzle
     void ShowPuzzle()
     {
         if (dialoguePrefab != null && dialogueInstance == null)
@@ -105,6 +108,7 @@ public class MirrorPuzzle : MonoBehaviour
             TimeManager.Instance.isTimeBlocked = false;
     }
 
+    // Chequear respuesta del jugador: correcta abre la puerta y hace aparecer una memoria, incorrecta quita una vida
     void CheckPuzzle()
     {
         if (playerInput == correctCode)

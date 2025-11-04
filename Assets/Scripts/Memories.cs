@@ -12,6 +12,7 @@ public class Memories : MonoBehaviour
             text3D.text = "0";
     }
 
+    // Al recoger memoria incrementa el contador de memorias y destruye el objeto
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))

@@ -26,7 +26,7 @@ public class ExplorerScript : MonoBehaviour
         if (Input.GetKey(KeyCode.A)) move += Vector2.left;
         if (Input.GetKey(KeyCode.D)) move += Vector2.right;
 
-        // Aplicar movimiento
+        // Aplicar movimiento (ahora sí permite movimiento diagonal)
         playerRigidbody.linearVelocity = move.normalized * moveSpeed;
     }
 }

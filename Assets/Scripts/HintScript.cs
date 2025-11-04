@@ -21,7 +21,7 @@ public class HintScript : MonoBehaviour
             HideHint();
     }
 
-    // Mostrar pista sobre cambio de tiempo
+    // Mostrar pista sobre cambio de tiempo al acercarse
     void ShowHint()
     {
         if (dialoguePrefab != null && dialogueInstance == null)

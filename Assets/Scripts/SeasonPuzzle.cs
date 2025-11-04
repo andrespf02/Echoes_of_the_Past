@@ -75,6 +75,7 @@ public class SeasonPuzzle : MonoBehaviour
         }
     }
 
+    // Mostrar puzzle
     void ShowPuzzle()
     {
         if (dialoguePrefab != null && dialogueInstance == null)
@@ -109,6 +110,7 @@ public class SeasonPuzzle : MonoBehaviour
             TimeManager.Instance.isTimeBlocked = false;
     }
 
+    // Chequear respuesta del jugador: correcta abre la puerta y hace aparecer una memoria, incorrecta quita una vida
     void CheckPuzzle()
     {
         if (playerInput == correctWord)

@@ -8,36 +8,45 @@ public class DoorScript : MonoBehaviour
 
     private SpriteRenderer spriteRenderer;
     private BoxCollider2D boxCollider;
-    private bool isOpen = false;
 
-    void Start()
+    [SerializeField, Tooltip("No cambiar en runtime. Siempre arranca cerrada.")]
+    private bool isOpen = false; // Siempre arranca cerrada
+
+    void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         boxCollider = GetComponent<BoxCollider2D>();
 
-        if (spriteRenderer == null)
-            Debug.LogWarning("DoorScript: no SpriteRenderer found on the door GameObject.");
-        if (boxCollider == null)
-            Debug.LogWarning("DoorScript: no BoxCollider2D found on the door GameObject.");
+        // Forzar estado cerrado antes del inicio
+        isOpen = false;
+        if (boxCollider != null)
+        {
+            boxCollider.isTrigger = false; // bloquea paso
+            boxCollider.enabled = true;
+        }
 
         UpdateDoorVisual();
     }
 
-    // Llama a este método para abrir/cerrar la puerta
+    void Start()
+    {
+        // Reforzar por si algún otro script intenta tocarlo
+        UpdateDoorVisual();
+    }
+
     public void ToggleDoor()
     {
         isOpen = !isOpen;
         UpdateDoorVisual();
     }
 
-    // Actualiza el sprite y el collider según si la puerta está abierta o cerrada
     private void UpdateDoorVisual()
     {
         if (spriteRenderer != null)
             spriteRenderer.sprite = isOpen ? doorOpen : doorClosed;
 
         if (boxCollider != null)
-            boxCollider.isTrigger = isOpen; // permite atravesar cuando está abierta
+            boxCollider.isTrigger = isOpen; // abierto = trigger, cerrado = sólido
     }
 
     public void OpenDoor()

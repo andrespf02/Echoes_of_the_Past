@@ -789,18 +789,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 622075571}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &229808728 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: -5743311781074219334, guid: 6a057178eb028e94fb93bf39262ea3e8,
-    type: 3}
-  m_PrefabInstance: {fileID: 622075571}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2042bc35cdf0a7d4bb595a21aef457aa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::DoorScript
 --- !u!1001 &250963911
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1369,6 +1357,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 303042204}
     m_Modifications:
+    - target: {fileID: -5743311781074219334, guid: 6a057178eb028e94fb93bf39262ea3e8,
+        type: 3}
+      propertyPath: doorOpen
+      value: 
+      objectReference: {fileID: 21300160, guid: 29c9cded5e558164aaf8c9bf08aa1510,
+        type: 3}
+    - target: {fileID: -5743311781074219334, guid: 6a057178eb028e94fb93bf39262ea3e8,
+        type: 3}
+      propertyPath: doorClosed
+      value: 
+      objectReference: {fileID: 21300158, guid: 29c9cded5e558164aaf8c9bf08aa1510,
+        type: 3}
     - target: {fileID: 2055102311959635369, guid: 6a057178eb028e94fb93bf39262ea3e8,
         type: 3}
       propertyPath: m_Name
@@ -1439,10 +1439,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -5743311781074219334, guid: 6a057178eb028e94fb93bf39262ea3e8, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2055102311959635369, guid: 6a057178eb028e94fb93bf39262ea3e8,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 750140281}
   m_SourcePrefab: {fileID: 100100000, guid: 6a057178eb028e94fb93bf39262ea3e8, type: 3}
 --- !u!4 &633623639 stripped
 Transform:
@@ -1805,6 +1810,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TimeVisibility
   visibleIn: 1
+--- !u!1 &750140278 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2055102311959635369, guid: 6a057178eb028e94fb93bf39262ea3e8,
+    type: 3}
+  m_PrefabInstance: {fileID: 622075571}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &750140281
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 750140278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2042bc35cdf0a7d4bb595a21aef457aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DoorScript
+  doorClosed: {fileID: 21300158, guid: 29c9cded5e558164aaf8c9bf08aa1510, type: 3}
+  doorOpen: {fileID: 21300160, guid: 29c9cded5e558164aaf8c9bf08aa1510, type: 3}
+  isOpen: 0
 --- !u!1 &760155666 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 905407890509561733, guid: 0423bfd1a561a0c41a5a115f6d746142,
@@ -3801,7 +3827,7 @@ PrefabInstance:
         type: 3}
       propertyPath: linkedDoor
       value: 
-      objectReference: {fileID: 229808728}
+      objectReference: {fileID: 750140281}
     - target: {fileID: 6261159308413386342, guid: 3fcd8726c7cd53345947949baefbab35,
         type: 3}
       propertyPath: dialoguePrefab
@@ -4134,6 +4160,7 @@ GameObject:
   - component: {fileID: 1641280679}
   - component: {fileID: 1641280678}
   - component: {fileID: 1641280677}
+  - component: {fileID: 1641280680}
   m_Layer: 0
   m_Name: Level2Trigger
   m_TagString: Untagged
@@ -4205,6 +4232,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1641280680
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1641280676}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f73866311ce5394e888bd280e737527, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TimeVisibility
+  visibleIn: 1
 --- !u!1 &1670341724 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2055102311959635369, guid: a0a71fda412ad0941ab44f1732ea4c1e,
