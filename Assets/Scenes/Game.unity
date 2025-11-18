@@ -7298,20 +7298,20 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1043625653}
     m_Modifications:
-    - target: {fileID: 7207378682686301866, guid: d168f1c031bc4c340aecc1b869229b8e,
+    - target: {fileID: 1074704427722493454, guid: d168f1c031bc4c340aecc1b869229b8e,
         type: 3}
-      propertyPath: m_Name
-      value: LeverText
+      propertyPath: m_fontColor.b
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4487636660919640666, guid: d168f1c031bc4c340aecc1b869229b8e,
+    - target: {fileID: 1074704427722493454, guid: d168f1c031bc4c340aecc1b869229b8e,
         type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 1.7
+      propertyPath: m_fontColor.g
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4487636660919640666, guid: d168f1c031bc4c340aecc1b869229b8e,
+    - target: {fileID: 1074704427722493454, guid: d168f1c031bc4c340aecc1b869229b8e,
         type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 7.2
+      propertyPath: m_fontColor.r
+      value: 0.02641511
       objectReference: {fileID: 0}
     - target: {fileID: 3832842722367142110, guid: d168f1c031bc4c340aecc1b869229b8e,
         type: 3}
@@ -7363,20 +7363,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1074704427722493454, guid: d168f1c031bc4c340aecc1b869229b8e,
+    - target: {fileID: 4487636660919640666, guid: d168f1c031bc4c340aecc1b869229b8e,
         type: 3}
-      propertyPath: m_fontColor.b
-      value: 0
+      propertyPath: m_AnchoredPosition.x
+      value: 1.7
       objectReference: {fileID: 0}
-    - target: {fileID: 1074704427722493454, guid: d168f1c031bc4c340aecc1b869229b8e,
+    - target: {fileID: 4487636660919640666, guid: d168f1c031bc4c340aecc1b869229b8e,
         type: 3}
-      propertyPath: m_fontColor.g
-      value: 0
+      propertyPath: m_AnchoredPosition.y
+      value: 7.2
       objectReference: {fileID: 0}
-    - target: {fileID: 1074704427722493454, guid: d168f1c031bc4c340aecc1b869229b8e,
+    - target: {fileID: 7207378682686301866, guid: d168f1c031bc4c340aecc1b869229b8e,
         type: 3}
-      propertyPath: m_fontColor.r
-      value: 0.02641511
+      propertyPath: m_Name
+      value: LeverText
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7722,12 +7722,12 @@ PrefabInstance:
     - target: {fileID: 4897152800591460787, guid: 1e5dc570236d75847b5b306f6fc9a771,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 130
+      value: 1363
       objectReference: {fileID: 0}
     - target: {fileID: 4897152800591460787, guid: 1e5dc570236d75847b5b306f6fc9a771,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1146
+      value: -1229
       objectReference: {fileID: 0}
     - target: {fileID: 4897152800591460787, guid: 1e5dc570236d75847b5b306f6fc9a771,
         type: 3}

@@ -9,21 +9,21 @@ public class Memories : MonoBehaviour
     private void Start()
     {
         if (text3D != null)
-            text3D.text = "0";
+            text3D.text = GameManager.Instance.totalMemories.ToString();
     }
 
-    // Al recoger memoria incrementa el contador de memorias y destruye el objeto
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
-            if (text3D != null)
-            {
-                int currentCount = int.Parse(text3D.text);
-                currentCount++;
-                text3D.text = currentCount.ToString();
-            }
+            // Suma global
+            GameManager.Instance.totalMemories++;
 
+            // Actualiza el texto 3D
+            if (text3D != null)
+                text3D.text = GameManager.Instance.totalMemories.ToString();
+
+            // Destruye la memoria recogida
             Destroy(gameObject);
         }
     }
