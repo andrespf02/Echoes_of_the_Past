@@ -2,11 +2,6 @@ using UnityEngine;
 
 public class PlayerLives : MonoBehaviour
 {
-    [Header("Lives Settings")]
-    public int maxLives = 7;
-    public int initialLives = 3;
-    public int currentLives = 3;
-
     [Header("Heart Visuals")]
     public SpriteRenderer[] hearts;
 
@@ -18,51 +13,53 @@ public class PlayerLives : MonoBehaviour
 
     void Start()
     {
-        currentLives = Mathf.Clamp(currentLives, 0, maxLives);
+        // Cargar vidas desde el LivesManager
+        LivesManager.Instance.currentLives = Mathf.Clamp(LivesManager.Instance.currentLives, 0, LivesManager.Instance.maxLives);
         UpdateHearts();
         respawnPosition = transform.position;
     }
 
-    // Perder una vida al colisionar
+    // Perder una vida
     public void TakeLife(int amount = 1)
     {
-        currentLives -= amount;
-        if (currentLives < 0)
-            currentLives = 0;
+        LivesManager.Instance.currentLives -= amount;
+
+        if (LivesManager.Instance.currentLives < 0)
+            LivesManager.Instance.currentLives = 0;
 
         UpdateHearts();
 
-        if (currentLives == 0)
+        if (LivesManager.Instance.currentLives == 0)
             RespawnAtCheckpoint();
     }
 
-    // Ganar una vida al colisionar
+    // Ganar una vida
     public void AddLife(int amount = 1)
     {
-        currentLives += amount;
-        if (currentLives > maxLives)
-            currentLives = maxLives;
+        LivesManager.Instance.currentLives += amount;
+
+        if (LivesManager.Instance.currentLives > LivesManager.Instance.maxLives)
+            LivesManager.Instance.currentLives = LivesManager.Instance.maxLives;
 
         UpdateHearts();
     }
 
-    // Actualizar corazones
+    // Actualizar corazones visuales
     void UpdateHearts()
     {
-        if (hearts == null) return;
+        int currentLives = LivesManager.Instance.currentLives;
 
         for (int i = 0; i < hearts.Length; i++)
         {
-            if (hearts[i] == null) continue;
-            hearts[i].enabled = (i < currentLives);
+            if (hearts[i] != null)
+                hearts[i].enabled = (i < currentLives);
         }
     }
 
-    // Checkpoint: resetar al número de vidas iniciales
+    // Checkpoint
     public void SetCheckpoint(Vector3 newPosition, SpriteRenderer flagRenderer = null)
     {
         respawnPosition = newPosition;
-        Debug.Log("Checkpoint activado!");
 
         if (flagRenderer != null && activeFlagSprite != null)
             flagRenderer.sprite = activeFlagSprite;
@@ -70,25 +67,24 @@ public class PlayerLives : MonoBehaviour
 
     private void RespawnAtCheckpoint()
     {
-        Debug.Log("Player murió! Reapareciendo en el checkpoint...");
         transform.position = respawnPosition;
 
-        currentLives = initialLives;
+        // Se restablecen las vidas al reaparecer
+        LivesManager.Instance.currentLives = 3;
+
         UpdateHearts();
     }
 
-    // Colisiones: perder y ganar vida según el objeto
+    // Colisiones
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Fire"))
         {
             TakeLife(1);
-            Debug.Log("Player touched fire! Lost one life.");
         }
         else if (other.CompareTag("Heart"))
         {
             AddLife(1);
-            Debug.Log("Player picked up a heart!");
             Destroy(other.gameObject);
         }
         else if (other.CompareTag("Checkpoint"))
