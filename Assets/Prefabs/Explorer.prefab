@@ -12,8 +12,10 @@ GameObject:
   - component: {fileID: 3066569458851867434}
   - component: {fileID: 1990004511214900718}
   - component: {fileID: 7464713680389766761}
-  - component: {fileID: 1268952692704940792}
-  - component: {fileID: 7915008660771421076}
+  - component: {fileID: -2827829804253232587}
+  - component: {fileID: 8024778962392617767}
+  - component: {fileID: -6622063866071211238}
+  - component: {fileID: -8930597859805061547}
   m_Layer: 0
   m_Name: Explorer
   m_TagString: Player
@@ -168,7 +170,7 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 2.38, y: 5.69}
   m_EdgeRadius: 0
---- !u!114 &1268952692704940792
+--- !u!114 &-2827829804253232587
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -177,12 +179,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 5505808609721025213}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7f60acab5842da94c99f26f8822e9bfd, type: 3}
+  m_Script: {fileID: 11500000, guid: 25cf90625336b6f43a76d23c14090ad5, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: '::'
-  playerRigidbody: {fileID: 0}
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerInput
+--- !u!114 &8024778962392617767
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5505808609721025213}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c93baa8fbc241664f9514a1b94ebc758, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
   moveSpeed: 180
---- !u!114 &7915008660771421076
+--- !u!114 &-6622063866071211238
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -194,9 +207,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 399c56f6cf233f6469e4d9ee95f4eb9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerLives
-  maxLives: 7
-  initialLives: 3
-  currentLives: 3
   hearts:
   - {fileID: 0}
   - {fileID: 0}
@@ -207,3 +217,15 @@ MonoBehaviour:
   - {fileID: 0}
   activeFlagSprite: {fileID: 1805158079502305607, guid: 0a29dfc7fea078c4a902ea97e54d54cf,
     type: 3}
+--- !u!114 &-8930597859805061547
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5505808609721025213}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79ed99bdcddea874b8b6f253dd7b45de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerCollisionHandler

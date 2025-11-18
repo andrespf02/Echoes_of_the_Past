@@ -4,18 +4,24 @@ public class LivesManager : MonoBehaviour
 {
     public static LivesManager Instance;
 
-    public int maxLives = 7;
-    public int currentLives = 3;  // valor inicial del juego
+    [Header("Lives Settings")]
+    public int maxLives = 7; // Vidas máximas permitidas
+    public int initialLives = 3; // Vidas iniciales al comenzar el juego
+    public int currentLives;
 
-    private void Awake()
+    void Awake()
     {
-        if (Instance != null && Instance != this)
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+
+            // Inicializar vidas al comenzar el juego
+            currentLives = initialLives;
+        }
+        else
         {
             Destroy(gameObject);
-            return;
         }
-
-        Instance = this;
-        DontDestroyOnLoad(gameObject);
     }
 }

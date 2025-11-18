@@ -6861,6 +6861,41 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -6622063866071211238, guid: 1e5dc570236d75847b5b306f6fc9a771,
+        type: 3}
+      propertyPath: 'hearts.Array.data[0]'
+      value: 
+      objectReference: {fileID: 294980655}
+    - target: {fileID: -6622063866071211238, guid: 1e5dc570236d75847b5b306f6fc9a771,
+        type: 3}
+      propertyPath: 'hearts.Array.data[1]'
+      value: 
+      objectReference: {fileID: 728181622}
+    - target: {fileID: -6622063866071211238, guid: 1e5dc570236d75847b5b306f6fc9a771,
+        type: 3}
+      propertyPath: 'hearts.Array.data[2]'
+      value: 
+      objectReference: {fileID: 1230366093}
+    - target: {fileID: -6622063866071211238, guid: 1e5dc570236d75847b5b306f6fc9a771,
+        type: 3}
+      propertyPath: 'hearts.Array.data[3]'
+      value: 
+      objectReference: {fileID: 460357541}
+    - target: {fileID: -6622063866071211238, guid: 1e5dc570236d75847b5b306f6fc9a771,
+        type: 3}
+      propertyPath: 'hearts.Array.data[4]'
+      value: 
+      objectReference: {fileID: 1323205329}
+    - target: {fileID: -6622063866071211238, guid: 1e5dc570236d75847b5b306f6fc9a771,
+        type: 3}
+      propertyPath: 'hearts.Array.data[5]'
+      value: 
+      objectReference: {fileID: 854202196}
+    - target: {fileID: -6622063866071211238, guid: 1e5dc570236d75847b5b306f6fc9a771,
+        type: 3}
+      propertyPath: 'hearts.Array.data[6]'
+      value: 
+      objectReference: {fileID: 1669738026}
     - target: {fileID: 4897152800591460787, guid: 1e5dc570236d75847b5b306f6fc9a771,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6916,41 +6951,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Explorer
       objectReference: {fileID: 0}
-    - target: {fileID: 7915008660771421076, guid: 1e5dc570236d75847b5b306f6fc9a771,
-        type: 3}
-      propertyPath: 'hearts.Array.data[0]'
-      value: 
-      objectReference: {fileID: 294980655}
-    - target: {fileID: 7915008660771421076, guid: 1e5dc570236d75847b5b306f6fc9a771,
-        type: 3}
-      propertyPath: 'hearts.Array.data[1]'
-      value: 
-      objectReference: {fileID: 728181622}
-    - target: {fileID: 7915008660771421076, guid: 1e5dc570236d75847b5b306f6fc9a771,
-        type: 3}
-      propertyPath: 'hearts.Array.data[2]'
-      value: 
-      objectReference: {fileID: 1230366093}
-    - target: {fileID: 7915008660771421076, guid: 1e5dc570236d75847b5b306f6fc9a771,
-        type: 3}
-      propertyPath: 'hearts.Array.data[3]'
-      value: 
-      objectReference: {fileID: 460357541}
-    - target: {fileID: 7915008660771421076, guid: 1e5dc570236d75847b5b306f6fc9a771,
-        type: 3}
-      propertyPath: 'hearts.Array.data[4]'
-      value: 
-      objectReference: {fileID: 1323205329}
-    - target: {fileID: 7915008660771421076, guid: 1e5dc570236d75847b5b306f6fc9a771,
-        type: 3}
-      propertyPath: 'hearts.Array.data[5]'
-      value: 
-      objectReference: {fileID: 854202196}
-    - target: {fileID: 7915008660771421076, guid: 1e5dc570236d75847b5b306f6fc9a771,
-        type: 3}
-      propertyPath: 'hearts.Array.data[6]'
-      value: 
-      objectReference: {fileID: 1669738026}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
