@@ -10,6 +10,10 @@ public class LeverScript : MonoBehaviour
     [TextArea] public string dialogueText = "Actívame!";
     public GameObject dialoguePrefab;
 
+    [Header("Memory Requirement (optional)")]
+    public bool requiresMemory = false; 
+    public int requiredMemories = 3;
+
     private bool playerNearby = false;
     private GameObject dialogueInstance;
 
@@ -32,8 +36,20 @@ public class LeverScript : MonoBehaviour
 
     void Update()
     {
-        if (playerNearby && Input.GetKeyDown(KeyCode.Space) && TimeManager.Instance != null && TimeManager.Instance.isPast)
+        if (playerNearby && Input.GetKeyDown(KeyCode.Space) &&
+            TimeManager.Instance != null && TimeManager.Instance.isPast)
         {
+            // Si esta palanca requiere memorias, verificamos
+            if (requiresMemory)
+            {
+                if (GameManager.Instance.totalMemories < requiredMemories)
+                {
+                    Debug.Log("No tienes suficientes memorias para activar esta palanca.");
+                    return;
+                }
+            }
+
+            // Si pasa todas las condiciones, acciona la puerta
             if (linkedDoor != null)
             {
                 linkedDoor.ToggleDoor();

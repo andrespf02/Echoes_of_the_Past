@@ -1038,6 +1038,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LivesManager
   maxLives: 7
+  initialLives: 3
   currentLives: 3
 --- !u!4 &1804767577
 Transform:

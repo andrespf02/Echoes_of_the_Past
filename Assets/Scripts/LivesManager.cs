@@ -24,4 +24,10 @@ public class LivesManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+
+    public void ResetLives()
+    {
+        currentLives = initialLives;
+    }
 }
