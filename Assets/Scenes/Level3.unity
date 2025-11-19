@@ -2303,7 +2303,7 @@ Transform:
   m_GameObject: {fileID: 364877688}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1064, y: -2233, z: 0}
+  m_LocalPosition: {x: 115, y: -2534, z: 0}
   m_LocalScale: {x: 16.182234, y: 30.271685, z: 9.091142}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -6010,12 +6010,12 @@ PrefabInstance:
     - target: {fileID: 4897152800591460787, guid: 1e5dc570236d75847b5b306f6fc9a771,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 534
+      value: 141
       objectReference: {fileID: 0}
     - target: {fileID: 4897152800591460787, guid: 1e5dc570236d75847b5b306f6fc9a771,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2851
+      value: -2492
       objectReference: {fileID: 0}
     - target: {fileID: 4897152800591460787, guid: 1e5dc570236d75847b5b306f6fc9a771,
         type: 3}
@@ -7994,13 +7994,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 1426231091}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ee514663ee24cfa4fb9db73b8f436bcb, type: 3}
+  m_Script: {fileID: 11500000, guid: dc4190c45d153354f8af7499b73b438c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MirrorPuzzle
-  puzzleQuestion: "Espejito espejito \ndime una clave \nde 4 d\xEDgitos:"
-  correctCode: 2314
-  linkedDoor: {fileID: 1158617697}
   dialoguePrefab: {fileID: 364877688}
+  linkedDoor: {fileID: 1158617697}
+  hiddenObject: {fileID: 0}
+  chestRenderer: {fileID: 0}
+  openChestSprite: {fileID: 0}
+  puzzleQuestion: "Espejito espejito...\nClave de 4 d\xEDgitos:"
+  correctCode: 2314
 --- !u!1001 &1435574138
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8774,13 +8777,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 1546623324}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ee514663ee24cfa4fb9db73b8f436bcb, type: 3}
+  m_Script: {fileID: 11500000, guid: dc4190c45d153354f8af7499b73b438c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MirrorPuzzle
-  puzzleQuestion: "25\xD78+12-48/3 = ?"
-  correctCode: 196
-  linkedDoor: {fileID: 1658535909}
   dialoguePrefab: {fileID: 1810858993}
+  linkedDoor: {fileID: 1658535909}
+  hiddenObject: {fileID: 0}
+  chestRenderer: {fileID: 0}
+  openChestSprite: {fileID: 0}
+  puzzleQuestion: "25x8-40\xF72+16 = ?"
+  correctCode: 196
 --- !u!114 &1546623326
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11018,12 +11024,12 @@ PrefabInstance:
     - target: {fileID: 3832842722367142110, guid: a17d0adea8fafc04595b24d2c8e15d6c,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1064
+      value: 115
       objectReference: {fileID: 0}
     - target: {fileID: 3832842722367142110, guid: a17d0adea8fafc04595b24d2c8e15d6c,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2233
+      value: -2534
       objectReference: {fileID: 0}
     - target: {fileID: 3832842722367142110, guid: a17d0adea8fafc04595b24d2c8e15d6c,
         type: 3}
@@ -11462,16 +11468,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 2072102789}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1bf941f9174f2dd4b91866fdb550dc79, type: 3}
+  m_Script: {fileID: 11500000, guid: f69189bdd64f8df479f9d683ca023331, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SeasonPuzzle
-  puzzleQuestion: "Dicen que curo \ntodas las heridas, \nqui\xE9n soy?"
-  correctWord: TIEMPO
+  dialoguePrefab: {fileID: 1628618821}
   linkedDoor: {fileID: 756294093}
   hiddenObject: {fileID: 528776978}
   chestRenderer: {fileID: 581970892}
   openChestSprite: {fileID: 21300040, guid: 29c9cded5e558164aaf8c9bf08aa1510, type: 3}
-  dialoguePrefab: {fileID: 1628618821}
+  puzzleQuestion: 'El ____ todo lo cura:'
+  correctWord: TIEMPO
 --- !u!114 &2072102791
 MonoBehaviour:
   m_ObjectHideFlags: 0

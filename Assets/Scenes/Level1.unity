@@ -4751,16 +4751,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1399869047}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 38dafdab54de9094bb67eac0774478aa, type: 3}
+  m_Script: {fileID: 11500000, guid: e6e44fa360751d841ae7418e5e710cd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PuzzleScript
-  puzzleQuestion: 'Completa la secuencia: 2, 4, 6, ?'
-  correctAnswer: 8
+  dialoguePrefab: {fileID: 931301608}
   linkedDoor: {fileID: 1124204960}
+  hiddenObject: {fileID: 2098964301}
   chestRenderer: {fileID: 1619603705}
   openChestSprite: {fileID: 21300040, guid: 29c9cded5e558164aaf8c9bf08aa1510, type: 3}
-  hiddenObject: {fileID: 2098964301}
-  dialoguePrefab: {fileID: 931301608}
+  correctAnswer: 8
 --- !u!61 &1399869053
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7768,12 +7767,12 @@ PrefabInstance:
     - target: {fileID: 4897152800591460787, guid: 1e5dc570236d75847b5b306f6fc9a771,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1363
+      value: 163
       objectReference: {fileID: 0}
     - target: {fileID: 4897152800591460787, guid: 1e5dc570236d75847b5b306f6fc9a771,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1229
+      value: -1173
       objectReference: {fileID: 0}
     - target: {fileID: 4897152800591460787, guid: 1e5dc570236d75847b5b306f6fc9a771,
         type: 3}
