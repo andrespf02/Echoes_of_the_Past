@@ -56,6 +56,10 @@ public abstract class PuzzleBase : MonoBehaviour
 
             if (TimeManager.Instance != null)
                 TimeManager.Instance.isTimeBlocked = true;
+
+            // Bloquea atajos de teclado
+            if (GlobalShortcuts.Instance != null)
+                GlobalShortcuts.Instance.shortcutsBlocked = true;
         }
     }
 
@@ -68,6 +72,10 @@ public abstract class PuzzleBase : MonoBehaviour
 
         if (TimeManager.Instance != null)
             TimeManager.Instance.isTimeBlocked = false;
+
+        // Reactiva atajos de teclado
+        if (GlobalShortcuts.Instance != null)
+            GlobalShortcuts.Instance.shortcutsBlocked = false;
     }
 
     // Cada puzzle define cómo procesa input y verifica respuesta

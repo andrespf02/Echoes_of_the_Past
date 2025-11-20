@@ -38,8 +38,8 @@ public class GameManager : MonoBehaviour
     {
         if (playerLives == null) return;
 
-        // Sumar vida (V)
-        if (Input.GetKeyDown(KeyCode.V))
+        // Sumar vida (C)
+        if (Input.GetKeyDown(KeyCode.C))
         {
             playerLives.AddLife(1);
             Debug.Log($"CHEAT: +1 vida → {LivesManager.Instance.currentLives}");
