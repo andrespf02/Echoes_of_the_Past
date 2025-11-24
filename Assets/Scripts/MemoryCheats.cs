@@ -13,7 +13,7 @@ public class MemoryCheats : MonoBehaviour
     void Update()
     {
         // CHEAT: Agregar memoria (M)
-        if (Input.GetKeyDown(KeyCode.M))
+        if (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift))
         {
             GameManager.Instance.totalMemories++;
             UpdateMemoryText();
